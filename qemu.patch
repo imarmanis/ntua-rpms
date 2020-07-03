@@ -1,0 +1,24 @@
+From 1c32b4f72314a5aca0bb02a51aa03b71c7b4b294 Mon Sep 17 00:00:00 2001
+From: Jason Marmanis <jmarmanis@gmail.com>
+Date: Sat, 11 Apr 2020 20:31:28 +0300
+Subject: [PATCH] Use Two Dimensional Paging
+
+---
+ accel/kvm/kvm-all.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/accel/kvm/kvm-all.c b/accel/kvm/kvm-all.c
+index 439a4efe52..a5164cfd72 100644
+--- a/accel/kvm/kvm-all.c
++++ b/accel/kvm/kvm-all.c
+@@ -1945,6 +1945,7 @@ static int kvm_init(MachineState *ms)
+         goto err;
+     }
+ 
++    type = 1;
+     do {
+         ret = kvm_ioctl(s, KVM_CREATE_VM, type);
+     } while (ret == -EINTR);
+-- 
+2.20.1
+
